@@ -1,6 +1,6 @@
-![SolarStation Admin Logo](src/assets/images/logo.png)
+![Scaffold AngularJS Simple Logo](src/assets/images/logo.png)
 
-# Solar Station Admin
+# Scaffold AngularJS Simple
 
 ## Versão Web
 

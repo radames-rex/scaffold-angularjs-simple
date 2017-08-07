@@ -1,5 +1,5 @@
 {
-  "name": "solar-station-admin",
+  "name": "scaffold-angularjs-admin",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -18,12 +18,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/radames-rex/solar-station-admin.git"
+    "url": "git+https://github.com/radames-rex/scaffold-angularjs-admin.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/radames-rex/solar-station-admin/issues"
+    "url": "https://github.com/radames-rex/scaffold-angularjs-admin/issues"
   },
-  "homepage": "https://github.com/radames-rex/solar-station-admin#readme"
+  "homepage": "https://github.com/radames-rex/scaffold-angularjs-admin#readme"
 }
