@@ -1,0 +1,152 @@
+<section class="content">
+  <div class="slides">
+    <div class="slides-title">
+      <h2>Bem-Vindo a Reflecta <small>Vidraçaria & Construção</small></h2>
+      <h3>Somos uma empresa especializada em construção de Boxes para banheiros, Espelhos, Fachadas em vidro temperado, Pele de Vidro, Tampos de Mesa,
+        Guarda Corpos, Esquadrias de Alumínios, Muros em vidro..</h3>
+    </div>
+    <img src="images/image-banner.png" alt="banner">
+  </div>
+  <div class="hbar">
+    <h3>Saiba mais sobre a Reflecta, explore nosso site e conheça nossos projetos e tenha certeza de que somos a equipe ideal para você … </h3>
+  </div>
+  <section class="frame services">
+    <h3>Serviços</h3>
+    <hr>
+    <h4>Somos uma empresa especializada em vidros para obras.</h4>
+    <div class="services-itens">
+      <div class="services-item">
+        <div class="services-item-icon">
+          <i class="fa fa-glass"></i>
+        </div>
+        <span>Produtos</span>
+        <p>Boxes para banheiros, Espelhos, Fachadas em vidro temperado, Pele de Vidro, Tampos de Mesa,
+          Guarda Corpos, Esquadrias de Alumínios e Muros em vidro.</p>
+      </div>
+      <div class="services-item">
+        <div class="services-item-icon">
+          <i class="fa fa-glass"></i>
+        </div>
+        <span>Vidraçaria</span>
+        <p>Construção, acabamento e prototipaçãos de projetos em vidro.</p>
+      </div>
+      <div class="services-item">
+        <div class="services-item-icon">
+          <i class="fa fa-glass"></i>
+        </div>
+        <span>Construção</span>
+        <p>Vidros de alta qualidade para deixar sua obra com mais segurança, beleza e excelência.</p>
+      </div>
+    </div>
+  </section>
+  <section class="frame frame-x lastworks">
+    <h3>Últimos Trabalhos</h3>
+    <hr>
+    <h4>Nossos trabalhos mais recentes. Conheça agora!</h4>
+    <div class="lastworks-itens">
+      <div class="lastworks-item">
+        <img src="images/{{ ctrl.works[0].imgUrl }}" alt="Work 1">
+        <span>{{ ctrl.works[0].title }}</span>
+        <p><i class="fa fa-place"></i> {{ ctrl.works[0].address }} - {{ ctrl.works[0].district }} - {{ ctrl.works[0].work }}</p>
+      </div>
+      <div class="lastworks-item">
+        <img src="images/{{ ctrl.works[1].imgUrl }}" alt="Work 2">
+        <span>{{ ctrl.works[1].title }}</span>
+        <p><i class="fa fa-place"></i> {{ ctrl.works[1].address }} - {{ ctrl.works[1].district }} - {{ ctrl.works[1].work }}</p>
+      </div>
+      <div class="lastworks-item">
+        <img src="images/{{ ctrl.works[2].imgUrl }}" alt="Work 3">
+        <span>{{ ctrl.works[2].title }}</span>
+        <p><i class="fa fa-place"></i> {{ ctrl.works[2].address }} - {{ ctrl.works[2].district }} - {{ ctrl.works[2].work }}</p>
+      </div>
+    </div>
+    <a ui-sref="reflecta.projects" class="button-cta">VEJA MAIS</a>
+  </section>
+  <div class="hbar-x">
+    <h3>CONHEÇA NOSSOS PARCEIROS!</h3>
+    <div class="row">
+      <a href="http://www.lnunes.com.br" target="_blank"><img src="images/lnunes-logo.png" alt="L.Nunes"></a>
+      <a href="http://www.terminex.com.br" target="_blank"><img src="images/terminex-logo.png" alt="Terminex"></a>
+      <a href="http://vivixvidrosplanos.com.br/" target="_blank"><img src="images/vivix-logo.png" alt="Vivix"></a>
+    </div>
+  </div>
+  <section class="frame">
+    <div class="blog">
+      <div class="blog-news">
+        <div class="title">Notícias</div>
+        <article>
+          <img src="{{ ctrl.notices[0].imgUrl }}" alt="Notice">
+          <div style="width: 80%;">
+            <h3>{{ ctrl.notices[0].title }}</h3>
+            <h4>{{ ctrl.notices[0].date }} Por: <i>{{ ctrl.notices[0].author }}</i></h4>
+            <p>{{ ctrl.notices[0].text }}</p>
+          </div>
+        </article>
+        <hr>
+        <article>
+          <img src="{{ ctrl.notices[1].imgUrl }}" alt="Notice">
+          <div style="width: 80%;">
+            <h3>{{ ctrl.notices[1].title }}</h3>
+            <h4>{{ ctrl.notices[1].date }} Por: <i>{{ ctrl.notices[1].author }}</i></h4>
+            <p>{{ ctrl.notices[1].text }}</p>
+          </div>
+        </article>
+        <hr>
+      </div>
+      <div class="blog-news blog-promo">
+        <div class="title">Promoções</div>
+        <article>
+          <img src="{{ ctrl.promo[0].imgUrl }}" alt="Promoção">
+          <div style="width: 50%;">
+            <h3>{{ ctrl.promo[0].title }}</h3>
+            <h4>Até <i>{{ ctrl.promo[0].date }}</i></h4>
+            <p>{{ ctrl.promo[0].text }}</p>
+          </div>
+        </article>
+        <hr>
+        <article>
+          <img src="{{ ctrl.promo[1].imgUrl }}" alt="Promoção">
+          <div style="width: 50%;">
+            <h3>{{ ctrl.promo[1].title }}</h3>
+            <h4>Até <i>{{ ctrl.promo[1].date }}</i></h4>
+            <p>{{ ctrl.promo[1].text }}</p>
+          </div>
+        </article>
+        <hr>
+      </div>
+    </div>
+  </section>
+  <section class="footer">
+    <div class="contact">
+      <h3>Contato</h3>
+      <div class="contact-itens">
+        <div class="contact-left">
+          <span>Endereço: </span>
+          <span>Telefone: </span>
+          <span>Email: </span>
+          <span>Horários:</span>
+        </div>
+        <div class="contact-right">
+          <small>Av. Presidente Kennedy, 2950.</small>
+          <small>(️86) 3085-0705 | (86) 9 9583-9496</small>
+          <small>contato@reflecta.com.br</small>
+          <div class="timetable">
+            <span>Seg-Sex.  &nbsp;&nbsp;<small>08:00 - 18:00</small></span>
+            <span>Sáb.      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>09:00 - 13:00</small></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact">
+      <h3>Fale Conosco</h3>
+      <form name="formMsg">
+        <input type="text" placeholder="Seu nome ..." ng-model="ctrl.name" ng-required="true">
+        <input type="text" placeholder="Seu email ..." ng-model="ctrl.email" ng-required="true">
+        <input type="text" placeholder="Seu telefone ..." ng-model="ctrl.phone" ng-required="true">
+        <textarea name="name" rows="8" cols="80" placeholder="Sua mensagem ..." ng-model="ctrl.msg" ng-required="true"></textarea>
+        <small ng-class="{fade : ctrl.fade}">{{ ctrl.result ? 'Mensagem Enviada com sucesso!': '*Preencha todos os campos!'}}</small>
+      </form>
+      <button ng-disabled="formMsg.$invalid" ng-click="ctrl.sendMessage()" class="button-cta" style="padding: 12px 40px 18px;">ENVIAR</button>
+    </div>
+  </section>
+</section>

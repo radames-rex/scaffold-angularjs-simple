@@ -1,0 +1,43 @@
+<div class="container" ng-controller="MainCtrl as ctrl">
+  <header>
+    <div class="header">
+      <div>
+        <span>Contato: (86) 3085-0705 | 9 9583-9496</span>
+        <span class="hide-for-mobile">E-Mail: contato@reflecta.com.br</span>
+      </div>
+      <div class="hide-for-mobile">
+        <span>Redes Sociais:</span>
+        <span><a href="https://www.facebook.com/reflectavidracaria" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></span>
+        <span><a href="https://www.instagram.com/reflectavidracaria" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></span>
+      </div>
+    </div>
+    <div class="content">
+      <img src="images/logo.png" alt="Reflecta" ui-sref="reflecta.home">
+      <nav>
+        <div class="hide-for-desktop" ng-class="{ 'open' : !inactiveDropdownMobile }" ng-click="ctrl.toggleDropdown()">
+          <i class="fa fa-bars"></i>
+        </div>
+        <ul ng-class="{ 'inactive-mobile' : inactiveDropdownMobile }">
+          <li ui-sref-active="active" ui-sref="reflecta.home" class=""><span>Início</span></li>
+          <li ui-sref-active="active" ui-sref="reflecta.about" class=""><span>Institucional</span></li>
+          <li ui-sref-active="active" ui-sref="reflecta.projects" class=""><span>Projetos</span></li>
+          <li ui-sref-active="active" ui-sref="reflecta.blog" class=""><span>Notícias</span></li>
+          <li ui-sref-active="active" ui-sref="reflecta.pictures" class=""><span>Imagens</span></li>
+          <!-- <li ui-sref-active="active" ui-sref="reflecta.contact" class=""><span>Contato</span></li> -->
+          <li ng-if="!isAdmin()" ui-sref="reflecta.login" class="button hide-for-mobile"><i class="fa fa-lock" aria-hidden="true"></i> Login</li>
+          <li ng-if="isAdmin()" ui-sref="reflecta.admin" class="button hide-for-mobile"><i class="fa fa-lock" aria-hidden="true"></i> Admin</li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <ui-view></ui-view>
+
+  <footer>
+    <img src="images/logo.png" alt="Reflecta">
+    <div>
+      {{'footer.copy' | translate}}&nbsp;
+      <a href="#">{{'footer.sitemap' | translate}}</a>
+    </div>
+  </footer>
+</div>

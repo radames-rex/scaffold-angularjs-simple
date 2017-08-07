@@ -1,0 +1,33 @@
+<ion-view class="kog-login">
+  <figure>
+    <img src="img/scaffold-angularjs-simple-logo.png" alt="logo" width="100%">
+    <h1>>KoGBooK<</h1>
+  </figure>
+  <div class="list list-inset kog-login-form">
+    <form login-form>
+      <div class="alert alert-danger alert-fields-required" style="display: none;">
+        <button class="close-alert" data-close="alert"></button>
+        <span> Os campos de usuário e senha são obrigatórios. </span>
+      </div>
+      <div class="alert alert-danger alert-wrong-credentials" style="display: none;">
+        <button class="close-alert" data-close="alert"></button>
+        <span> Usuário ou senha incorretos. </span>
+      </div>
+      <label class="item item-input">
+        <input type="text" placeholder="Usuário" name="username" ng-model="vm.username" required>
+      </label>
+      <label class="item item-input">
+        <input type="password" placeholder="Senha" name="password" ng-model="vm.password" required>
+      </label>
+      <button type="submit" class="button button-block button-enter">
+        ENTRAR
+      </button>
+      <button type="button" class="button button-block button-signup" ui-sref="scaffold-angularjs-simple.signup">
+        Cadastre-se
+      </button>
+      <button type="button" class="button button-block button-facebook">
+        Entrar com Facebook
+      </button>
+    </form>
+  </div>
+</ion-view>

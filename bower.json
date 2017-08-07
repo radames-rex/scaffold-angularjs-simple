@@ -1,0 +1,45 @@
+{
+  "name": "solarstationadmin",
+  "homepage": "",
+  "authors": [
+    "radames-rex <radames.rex@gmail.com>"
+  ],
+  "description": "Reflecta",
+  "main": "index.html",
+  "keywords": [
+    "reflecta"
+  ],
+  "license": "None",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.3",
+    "angular-ui-router": "^1.0.5",
+    "angular-cookies": "1.5.3",
+    "angular-aria": "1.5.3",
+    "angular-translate": "^2.13.1",
+    "angular-translate-loader-static-files": "^2.13.1",
+    "jquery": "^3.2.1",
+    "jquery-validation": "jquery-validate#^1.17.0",
+    "spin.js": "spinjs#^2.3.2",
+    "moment": "momentjs#^2.18.1",
+    "font-awesome": "^4.7.0",
+    "angular-base64-upload": "^0.1.22",
+    "angular-sanitize": "^1.6.5",
+    "bootstrap": "^3.3.7"
+  },
+  "overrides": {
+    "font-awesome": {
+      "main": [
+        "css/font-awesome.css"
+      ]
+    }
+  },
+  "devDependencies": {}
+}

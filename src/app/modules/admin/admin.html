@@ -1,0 +1,292 @@
+<section class="content">
+  <section class="admin">
+    <aside class="admin-menu">
+      <div class="admin-menu-user">
+        <img src="{{ avatarUrl }}" alt="Avatar">
+        <span>{{ usuario }}</span>
+        <small>Administrador</small>
+        <div ng-click="ctrl.logout()"><i class="fa fa-power-off"></i> Sair</div>
+      </div>
+      <ul>
+        <li ng-class="{ active : ctrl.messagesVisible }" ng-click="ctrl.messagesVisible = ctrl.invisibilityAll()"><i class="fa fa-comments-o"></i> <span>Mensagens</span></li>
+        <li ng-class="{ active : ctrl.worksVisible }" ng-click="ctrl.worksVisible = ctrl.invisibilityAll()"><i class="fa fa-building-o"></i> <span>Obras</span></li>
+        <li ng-class="{ active : ctrl.blogVisible }" ng-click="ctrl.blogVisible = ctrl.invisibilityAll()"><i class="fa fa-feed"></i> <span>Notícias</span></li>
+        <li ng-class="{ active : ctrl.promoVisible }" ng-click="ctrl.promoVisible = ctrl.invisibilityAll()"><i class="fa fa-shopping-cart"></i> <span>Promoções</span></li>
+        <li ng-class="{ active : ctrl.aboutVisible }" ng-click="ctrl.aboutVisible = ctrl.invisibilityAll()"><i class="fa fa-university"></i> <span>Institucional</span></li>
+        <li ng-class="{ active : ctrl.picsVisible }" ng-click="ctrl.picsVisible = ctrl.invisibilityAll()"><i class="fa fa-picture-o"></i> <span>Imagens</span></li>
+      </ul>
+    </aside>
+    <main class="admin-main">
+      <section class="messages" ng-if="ctrl.messagesVisible">
+        <h3>Mensagens Recebidas</h3>
+        <div class="view">
+          <div class="view-head">
+            <div class="view-head-titles">
+              <span>ID</span>
+              <span>Nome</span>
+              <span>E-mail</span>
+              <span>Telefone</span>
+              <span>Mensagem</span>
+              <span>Data</span>
+              <span>Ações</span>
+            </div>
+          </div>
+          <div class="view-body">
+            <div ng-repeat="m in ctrl.messages" class="view-body-item">
+              <div class="view-body-fields">{{ m.id }}</div>
+              <div class="view-body-fields">{{ m.name }}</div>
+              <div class="view-body-fields">{{ m.email }}</div>
+              <div class="view-body-fields">{{ m.phone }}</div>
+              <div class="view-body-fields">{{ m.message }}</div>
+              <div class="view-body-fields">{{ m.date }}</div>
+              <div class="view-body-fields">
+                <div class="view-actions">
+                  <div>
+                    <i class="fa fa-eye"></i> <span>Visualizar</span>
+                  </div>
+                  <div ng-click="ctrl.deleteMessage(m.id)">
+                    <i class="fa fa-trash"></i> <span>Deletar</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="works" ng-if="ctrl.worksVisible">
+        <h3>Obras</h3>
+        <div class="view">
+          <div class="view-head">
+            <div class="view-head-new">
+              <a ng-click="ctrl.newActive = !ctrl.newActive" ng-init="ctrl.newActive = false"><i class="fa fa-plus"></i>Novo</a>
+              <div class="view-head-new-fields" ng-if="ctrl.newActive">
+                <span><input type="file" onChange="base64(this)"><input id="file" type="hidden" placeholder="Imagem URL"></span>
+                <span><input type="text" ng-model="ctrl.newWork.title" placeholder="Título"></span>
+                <span><input type="text" ng-model="ctrl.newWork.work" placeholder="Obra"></span>
+                <span><input type="text" ng-model="ctrl.newWork.address" placeholder="Endereço"></span>
+                <span><input type="text" ng-model="ctrl.newWork.district" placeholder="Bairro"></span>
+                <span class="view-actions">
+                  <div ng-click="ctrl.saveNewWork()">
+                    <i class="fa fa-floppy-o"></i> <span>Salvar</span>
+                  </div>
+                </span>
+              </div>
+            </div>
+            <div class="view-head-titles">
+              <span>ID</span>
+              <span>Imagem</span>
+              <span>Título</span>
+              <span>Obra</span>
+              <span>Endereço</span>
+              <span>Bairro</span>
+              <span>Ações</span>
+            </div>
+          </div>
+          <div class="view-body">
+            <div ng-repeat="w in ctrl.works" class="view-body-item">
+              <div class="view-body-fields">{{ w.id }}</div>
+              <div class="view-body-fields"><img src="{{ w.image.thumbnail.url }}"></div>
+              <div class="view-body-fields">{{ w.title }}</div>
+              <div class="view-body-fields">{{ w.address }}</div>
+              <div class="view-body-fields">{{ w.district }}</div>
+              <div class="view-body-fields">{{ w.work }}</div>
+              <div class="view-body-fields">
+                <div class="view-actions">
+                  <div>
+                    <i class="fa fa-edit"></i> <span>Editar</span>
+                  </div>
+                  <div ng-click="ctrl.deleteWork(w.id)">
+                    <i class="fa fa-trash"></i> <span>Deletar</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="blog" ng-if="ctrl.blogVisible">
+        <h3>Blog</h3>
+        <div class="view">
+          <div class="view-head">
+            <div class="view-head-new">
+              <a ng-click="ctrl.newActive = !ctrl.newActive" ng-init="ctrl.newActive = false"><i class="fa fa-plus"></i>Novo</a>
+              <div class="view-head-new-fields" ng-if="ctrl.newActive">
+                <span><input type="file" onChange="base64(this)"><input id="file" type="hidden" placeholder="Imagem URL"></span>
+                <span><input type="text" ng-model="ctrl.newNotice.title" placeholder="Título"></span>
+                <span><input type="text" ng-model="ctrl.newNotice.author" placeholder="Autor"></span>
+                <span><input type="text" ng-model="ctrl.newNotice.text" placeholder="Texto"></span>
+                <span class="view-actions">
+                  <div ng-click="ctrl.saveNewNotice()">
+                    <i class="fa fa-floppy-o"></i> <span>Salvar</span>
+                  </div>
+                </span>
+              </div>
+            </div>
+            <div class="view-head-titles">
+              <span>ID</span>
+              <span>Imagem</span>
+              <span>Título</span>
+              <span>Autor</span>
+              <span>Data</span>
+              <span>Texto</span>
+              <span>Ações</span>
+            </div>
+          </div>
+          <div class="view-body">
+            <div ng-repeat="n in ctrl.notices" class="view-body-item">
+              <div class="view-body-fields">{{ n.id }}</div>
+              <div class="view-body-fields"><img src="{{ n.image.thumbnail.url }}"></div>
+              <div class="view-body-fields">{{ n.title }}</div>
+              <div class="view-body-fields">{{ n.author }}</div>
+              <div class="view-body-fields">{{ n.created_at }}</div>
+              <div class="view-body-fields">{{ n.text }}</div>
+              <div class="view-body-fields">
+                <div class="view-actions">
+                  <div>
+                    <i class="fa fa-edit"></i> <span>Editar</span>
+                  </div>
+                  <div ng-click="ctrl.deleteNotice(n.id)">
+                    <i class="fa fa-trash"></i> <span>Deletar</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="promo" ng-if="ctrl.promoVisible">
+        <h3>Promoções</h3>
+        <div class="view">
+          <div class="view-head">
+            <div class="view-head-new">
+              <a ng-click="ctrl.newActive = !ctrl.newActive" ng-init="ctrl.newActive = false"><i class="fa fa-plus"></i>Novo</a>
+              <div class="view-head-new-fields" ng-if="ctrl.newActive">
+                <span><input type="file" onChange="base64(this)"><input id="file" type="hidden" placeholder="Imagem URL"></span>
+                <span><input type="text" ng-model="ctrl.newPromo.title" placeholder="Título"></span>
+                <span><input type="text" ng-model="ctrl.newPromo.data" placeholder="Data Limite"></span>
+                <span><input type="text" ng-model="ctrl.newPromo.text" placeholder="Texto"></span>
+                <span class="view-actions">
+                  <div ng-click="ctrl.saveNewPromo()">
+                    <i class="fa fa-floppy-o"></i> <span>Salvar</span>
+                  </div>
+                </span>
+              </div>
+            </div>
+            <div class="view-head-titles">
+              <span>ID</span>
+              <span>Images</span>
+              <span>Título</span>
+              <span>Data Limite</span>
+              <span>Texto</span>
+              <span>Ações</span>
+            </div>
+          </div>
+          <div class="view-body">
+            <div ng-repeat="p in ctrl.promos" class="view-body-item">
+              <div class="view-body-fields">{{ p.id }}</div>
+              <div class="view-body-fields"><img src="{{ p.image.thumbnail.url }}"></div>
+              <div class="view-body-fields">{{ p.title }}</div>
+              <div class="view-body-fields">{{ p.date }}</div>
+              <div class="view-body-fields">{{ p.text }}</div>
+              <div class="view-body-fields">
+                <div class="view-actions">
+                  <div>
+                    <i class="fa fa-edit"></i> <span>Editar</span>
+                  </div>
+                  <div ng-click="ctrl.deletePromo(p.id)">
+                    <i class="fa fa-trash"></i> <span>Deletar</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="about" ng-if="ctrl.aboutVisible">
+        <h3>Institucional</h3>
+        <div class="view">
+          <div class="view-head">
+            <div class="view-head-titles">
+              <span>ID</span>
+              <span>Quem somos</span>
+              <span>Valores</span>
+              <span>Missão</span>
+              <span>Visão</span>
+              <span>Fazemos: Título</span>
+              <span>Fazemos: Descrição</span>
+              <span>Fazemos: Tipos</span>
+              <span>Ações</span>
+            </div>
+          </div>
+          <div class="view-body">
+            <div ng-repeat="a in ctrl.abouts" class="view-body-item">
+              <div class="view-body-fields">{{ a.id }}</div>
+              <div class="view-body-fields">{{ a.who }}</div>
+              <div class="view-body-fields">{{ a.values }}</div>
+              <div class="view-body-fields">{{ a.mission }}</div>
+              <div class="view-body-fields">{{ a.vision }}</div>
+              <div class="view-body-fields">{{ a.do_title }}</div>
+              <div class="view-body-fields">{{ a.do_desc }}</div>
+              <div class="view-body-fields">{{ a.do_type }}</div>
+              <div class="view-body-fields">
+                <div class="view-actions">
+                  <div>
+                    <i class="fa fa-edit"></i> <span>Editar</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="pics" ng-if="ctrl.picsVisible">
+        <h3>Galeria de Imagens</h3>
+        <div class="view">
+          <div class="view-head">
+            <div class="view-head-new">
+              <a ng-click="ctrl.newActive = !ctrl.newActive" ng-init="ctrl.newActive = false"><i class="fa fa-plus"></i>Novo</a>
+              <div class="view-head-new-fields" ng-if="ctrl.newActive">
+                <span><input type="file" onChange="base64(this)"><input id="file" type="hidden" placeholder="Imagem URL"></span>
+                <span><input type="text" ng-model="ctrl.newPic.title" placeholder="Título"></span>
+                <span><input type="text" ng-model="ctrl.newPic.category" placeholder="Categoria"></span>
+                <span><input type="text" ng-model="ctrl.newPic.value" placeholder="Valor"></span>
+                <span class="view-actions">
+                  <div ng-click="ctrl.saveNewPic()">
+                    <i class="fa fa-floppy-o"></i> <span>Salvar</span>
+                  </div>
+                </span>
+              </div>
+            </div>
+            <div class="view-head-titles">
+              <span>ID</span>
+              <span>Imagem</span>
+              <span>Título</span>
+              <span>Categoria</span>
+              <span>Valor</span>
+              <span>Ações</span>
+            </div>
+          </div>
+          <div class="view-body">
+            <div ng-repeat="p in ctrl.pics" class="view-body-item">
+              <div class="view-body-fields">{{ p.id }}</div>
+              <div class="view-body-fields"><img src="{{ p.image.thumbnail.url }}"></div>
+              <div class="view-body-fields">{{ p.title }}</div>
+              <div class="view-body-fields">{{ p.category }}</div>
+              <div class="view-body-fields">{{ p.value }}</div>
+              <div class="view-body-fields">
+                <div class="view-actions">
+                  <div>
+                    <i class="fa fa-edit"></i> <span>Editar</span>
+                  </div>
+                  <div ng-click="ctrl.deletePic(p.id)">
+                    <i class="fa fa-trash"></i> <span>Deletar</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </section>
+</section>

@@ -1,0 +1,31 @@
+{
+  "main": {
+    "spotlights": "Spotlight",
+    "categories": "Categories",
+    "error": {
+      "request": "Try Again!"
+    }
+  },
+  "spotlights": {
+    "only": "only",
+    "$": "US$"
+  },
+  "login": {
+    "email": "Email",
+    "password": "Password",
+    "placeholder": {
+      "email": "Your email...",
+      "password": "Your password..."
+    },
+    "or": "or",
+    "enter": "Enter",
+    "signin": "Create Bora account",
+    "facebook": "Login with Facebook"
+  },
+  "footer": {
+    "copy": "Reflecta Vidraçaria & Construção © 2017. All rights reserved. Powered by Rádames Santiago.",
+    "terms": "Use Terms.",
+    "politics": "Privacy Politics.",
+    "sitemap": "Sitemap."
+  }
+}
